@@ -31,10 +31,14 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 		path: '/orders',
 		icon: <HiOutlineShoppingCart />,
 		subMenu: [
-			{ key: 'sub1', label: 'Create New Order', path: '/New_Order', icon: < AiFillAccountBook/> },
-			{ key: 'sub2', label: 'Orders List', path: '/Product_list', icon: <AiFillAppstore /> },
 			
-		  ],
+			{ key: 'sub4', label: 'Add new order', path: '/Add_new_order', icon: <AiFillAccountBook /> },
+			{ key: 'sub5', label: 'List of Order', path: '/List_Of_order', icon: <AiFillAppstore /> },
+			{ key: 'sub5', label: 'Add new customer', path: '/Addnewcustomer', icon: <AiFillAppstore /> },
+			{ key: 'sub6', label: 'Add product category', path: '/Addproductcatagry', icon: <AiFillAppstore /> },
+			{ key: 'sub7', label: 'Add product ', path: '/Addproduct', icon: <AiFillAppstore /> },
+
+		],
 
 	},
 	{
@@ -47,6 +51,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 			{ key: 'sub2', label: 'Product List', path: '/Product_list', icon: <AiFillAppstore /> },
 			{ key: 'sub2', label: 'Add Product', path: '/Add_product', icon: <AiFillEdit /> },
 			{ key: 'sub2', label: 'Product Issue', path: '/Issue_product', icon: <AiFillFolderOpen /> },
+			
 		  ],
 	},
 	
@@ -65,7 +70,7 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 	{
 		key: 'messages',
 		label: 'Messages',
-		path: '/messages',
+		path: '/PremadeProductPage',
 		icon: <HiOutlineAnnotation />
 	}
 ]

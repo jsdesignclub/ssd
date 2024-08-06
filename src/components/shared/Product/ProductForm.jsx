@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
 const ProductForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const onSubmit = (data) => {
-    console.log(data);
-    // Handle form submission logic here
+    axios.post('http://localhost:5000/api/products', data)
+      .then(response => {
+        setSuccessMessage('Product added successfully!');
+        setErrorMessage('');
+        reset();
+      })
+      .catch(error => {
+        setErrorMessage('There was an error submitting the form!');
+        setSuccessMessage('');
+      });
   };
 
   return (
@@ -87,6 +98,8 @@ const ProductForm = () => {
           </button>
         </div>
       </form>
+      {successMessage && <p className="text-green-500 text-xs italic">{successMessage}</p>}
+      {errorMessage && <p className="text-red-500 text-xs italic">{errorMessage}</p>}
     </div>
   );
 };

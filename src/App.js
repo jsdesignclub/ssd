@@ -10,12 +10,21 @@ import { New_product } from "./components/shared/Product/New_product";
 import { Product_list } from "./components/shared/Product/Product_list";
 import { Add_Product } from "./components/shared/Product/Add_Product";
 import { Product_Issue } from "./components/shared/Product/Product_Issue";
-import NewOrderForm from "./components/shared/Orders_menu/NewOrderForm";
 import AddProductToStock from "./components/shared/Product/AddProductToStock";
 import IssueStockForm from "./components/shared/Product/IssueStockForm";
 import LoginPage from './components/shared/LoginPage';
 import ProtectedRoute from './components/shared/ProtectedRoute';
 import { AuthProvider } from './AuthContext';
+import {Add_new_order} from './components/shared/Orders_menu/Addneworder/Add_new_order'
+import List_Of_order from './components/shared/Orders_menu/Listoforder/List_Of_order'
+import {Addnewcustomer} from './components/shared/Orders_menu/Addnewcustomer/Addnewcustomer';
+import { Addproductcatagry } from './components/shared/Orders_menu/Addproduct/Addproductcatagry';
+import { Addproduct } from './components/shared/Orders_menu/Addproduct/Addproduct';
+import  PremadeProductPage  from './components/shared/Orders_menu/Addneworder/PremadeProductPage';
+import { CreateNewSpecification } from './components/shared/Orders_menu/ProductSpecifiction/CreateNewSpecification';
+import OrderDetails  from './components/shared/Orders_menu/Listoforder/OrderDetails'
+import AddPremadeProductForm from './components/shared/Orders_menu/ProductSpecifiction/AddPremadeProductForm';
+import { Premadeproductdetails } from './components/shared/Orders_menu/ProductSpecifiction/Premadeproductdetails';
 
 function App() {
   return (
@@ -34,9 +43,18 @@ function App() {
               <Route path="Product_list" element={<Product_list />} />
               <Route path="Add_product" element={<Add_Product />} />
               <Route path="Product_Issue" element={<Product_Issue />} />
-              <Route path="New_Order" element={<NewOrderForm />} />
               <Route path="Add_product" element={<AddProductToStock />} />
               <Route path="Issue_product" element={<IssueStockForm />} />
+              <Route path="Add_new_order" element={<Add_new_order />} />
+              <Route path="List_Of_order" element={<List_Of_order />} />
+              <Route path="Addnewcustomer" element={<Addnewcustomer />} />
+              <Route path="Addproductcatagry" element={<Addproductcatagry />} />
+              <Route path="Addproduct" element={<Addproduct />} />
+              <Route path="PremadeProductPage/:id/:productId" element={<PremadeProductPage />} />
+              <Route path="order-details/:orderId" element={<OrderDetails />} />
+              <Route path="AddPremadeProductForm/:orderId/:productId" element={<AddPremadeProductForm />} />
+              <Route path="CreateNewSpecification/:id/:productId/:premadeProductId" element={<CreateNewSpecification />} />
+              <Route path="Premadeproductdetails/:id/:productId/:premadeProductId" element={<Premadeproductdetails/>} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
