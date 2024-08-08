@@ -42,15 +42,15 @@ export const DASHBOARD_SIDEBAR_LINKS = [
 
 	},
 	{
-		key: 'products',
-		label: 'Products',
+		key: 'Stock',
+		label: 'Stock Management',
 		path: '/products',
 		icon: <HiOutlineCube />,
 		subMenu: [
-			{ key: 'sub1', label: 'Create Product', path: '/New_product', icon: < AiFillAccountBook/> },
-			{ key: 'sub2', label: 'Product List', path: '/Product_list', icon: <AiFillAppstore /> },
-			{ key: 'sub2', label: 'Add Product', path: '/Add_product', icon: <AiFillEdit /> },
-			{ key: 'sub2', label: 'Product Issue', path: '/Issue_product', icon: <AiFillFolderOpen /> },
+			{ key: 'sub1', label: 'Stock Inquiry', path: '/StockManagement', icon: < AiFillAccountBook/> },
+			{ key: 'sub2', label: 'Stock List', path: '/Product_list', icon: <AiFillAppstore /> },
+			{ key: 'sub2', label: 'Add New Stock', path: '/Add_product', icon: <AiFillEdit /> },
+			{ key: 'sub2', label: 'Stock Issue', path: '/Issue_product', icon: <AiFillFolderOpen /> },
 			
 		  ],
 	},

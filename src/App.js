@@ -25,7 +25,8 @@ import { CreateNewSpecification } from './components/shared/Orders_menu/ProductS
 import OrderDetails  from './components/shared/Orders_menu/Listoforder/OrderDetails'
 import AddPremadeProductForm from './components/shared/Orders_menu/ProductSpecifiction/AddPremadeProductForm';
 import { Premadeproductdetails } from './components/shared/Orders_menu/ProductSpecifiction/Premadeproductdetails';
-
+import StockManagement from './components/shared/Stck_Management/StockManagement';
+import StockRequirement from './components/shared/Stck_Management/StockRequirement';
 function App() {
   return (
     <div className="App">
@@ -55,6 +56,9 @@ function App() {
               <Route path="AddPremadeProductForm/:orderId/:productId" element={<AddPremadeProductForm />} />
               <Route path="CreateNewSpecification/:id/:productId/:premadeProductId" element={<CreateNewSpecification />} />
               <Route path="Premadeproductdetails/:id/:productId/:premadeProductId" element={<Premadeproductdetails/>} />
+              <Route path="StockManagement" element={<StockManagement/>} />
+              <Route path="/stock_requirement/:orderId/:premadeProductId" element={<StockRequirement />} />
+            
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>

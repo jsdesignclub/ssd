@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export const Premadeproductdetails = () => {
-    const {orderId, productId, premadeProductId } = useParams();
+    const {id:orderId, productId, premadeProductId } = useParams();
     const navigate = useNavigate();
     const [productDetails, setProductDetails] = useState([]);
     const [materials, setMaterials] = useState([]);
@@ -53,6 +53,7 @@ export const Premadeproductdetails = () => {
       try {
           await axios.put(`http://localhost:5000/api/orders/${orderId}`, { premadeProductId });
           alert('Order updated successfully!');
+          navigate(`/List_Of_order`);
       } catch (error) {
           console.error('Error updating order', error);
           alert('Failed to update order');
@@ -70,7 +71,7 @@ export const Premadeproductdetails = () => {
             <div className="flex gap-4 flex-col">
                 <h1>Product Specification ID: {premadeProductId}</h1>
                 <div className="p-4 bg-gradient-to-r from-slate-200 to-slate-300 rounded-md border border-gray-300 text-center">
-                    Product Design
+                    Product Design {orderId}
                 </div>
                 <div className="p-4 bg-gray-200 border border-gray-300 text-center">
                     {images.length > 0 ? (
@@ -119,7 +120,7 @@ export const Premadeproductdetails = () => {
                     )}
                 </div>
             </div>
-            <div className="flex justify-end gap-4 mt-4">
+            <div className="flex justify-center gap-4 mt-4">
                 <button 
                     onClick={updateOrderWithPremadeProductId} 
                     className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none"

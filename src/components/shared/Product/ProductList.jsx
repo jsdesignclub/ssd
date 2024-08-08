@@ -1,55 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
+  const [stockDetails, setStockDetails] = useState([]);
 
   useEffect(() => {
-    // Fetch products from the backend
-    axios.get('http://localhost:5000/api/products')
-      .then(response => {
-        setProducts(response.data);
-        setError(null);
-      })
-      .catch(err => {
-        setError('Error fetching products');
-        setProducts([]);
-      });
+    const fetchStockDetails = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/stock');
+        setStockDetails(response.data);
+      } catch (error) {
+        console.error('Error fetching stock details', error);
+      }
+    };
+
+    fetchStockDetails();
   }, []);
 
   return (
-    <div className="max-w-4xl mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-4">Product List</h1>
-      {error && <p className="text-red-500">{error}</p>}
-      <table className="min-w-full bg-white border border-gray-200">
+    <div className="container mx-auto p-4">
+      <h2 className="text-2xl font-bold mb-4">Available Stock Balance</h2>
+      <table className="min-w-full bg-white border">
         <thead>
           <tr>
-            <th className="py-2 px-4 border-b">ID</th>
-            <th className="py-2 px-4 border-b">Product Name</th>
-            <th className="py-2 px-4 border-b">Product Code</th>
-            <th className="py-2 px-4 border-b">Product Category</th>
-            <th className="py-2 px-4 border-b">Unit Price</th>
-            <th className="py-2 px-4 border-b">Quantity in Stock</th>
+            <th className="px-6 py-3 border-b">Stock ID</th>
+            <th className="px-6 py-3 border-b">Material ID</th>
+            <th className="px-6 py-3 border-b">Available Quantity</th>
+            <th className="px-6 py-3 border-b">Last Updated</th>
           </tr>
         </thead>
         <tbody>
-          {products.length > 0 ? (
-            products.map(product => (
-              <tr key={product.id}>
-                <td className="py-2 px-4 border-b">{product.id}</td>
-                <td className="py-2 px-4 border-b">{product.productName}</td>
-                <td className="py-2 px-4 border-b">{product.productCode}</td>
-                <td className="py-2 px-4 border-b">{product.productCategory}</td>
-                <td className="py-2 px-4 border-b">{product.unitPrice}</td>
-                <td className="py-2 px-4 border-b">{product.quantityInStock}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="6" className="py-2 px-4 border-b text-center">No products available</td>
+          {stockDetails.map((stock, index) => (
+            <tr key={index}>
+              <td className="px-6 py-4 border-b">{stock.StockId}</td>
+              <td className="px-6 py-4 border-b">{stock.MaterialId}</td>
+              <td className="px-6 py-4 border-b">{stock.AvailableQuantity}</td>
+              <td className="px-6 py-4 border-b">{new Date(stock.LastUpdated).toLocaleString()}</td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
     </div>
