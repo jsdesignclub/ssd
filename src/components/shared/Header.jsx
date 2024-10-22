@@ -3,12 +3,12 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { MdOutlineMessage } from "react-icons/md";
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
-import ava from "../images/ss.jpg"
+
 const bb = 'bg-gray-50 border py-4 px-4';
 
 export const Header = () => {
   return (
-    <div className='flex h-16 bg-cyan-50 px-2 justify-between items-center'>
+    <div className='flex h-16 bg-primary px-2 justify-between items-center'>
       <div>
         <input
           type="text"
@@ -67,11 +67,7 @@ export const Header = () => {
 
         <Menu as="div" className="relative">
           <MenuButton>
-            <img
-              src={ava} // Replace with the path to your avatar image
-              alt="User Avatar"
-              className="w-10 h-10 rounded-full object-cover cursor-pointer" // Tailwind classes for round avatar
-            />
+           
           </MenuButton>
           <MenuItems className="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg">
             <MenuItem>

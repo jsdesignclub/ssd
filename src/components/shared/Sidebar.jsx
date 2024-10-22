@@ -26,20 +26,20 @@ export const Sidebar = () => {
   return (
     <div className="flex">
       <div className="lg:hidden p-2 h-16 bg-sky-700">
-        <AiOutlineMenu onClick={toggleSidebar} className="text-2xl cursor-pointer text-white" />
+        <AiOutlineMenu onClick={toggleSidebar} className="text-2xl cursor-pointer text-secondary" />
       </div>
-      <div className={classNames('bg-sky-950 text-slate-300 p-4 flex flex-col fixed lg:static transition-transform duration-300 transform h-full z-20', {
+      <div className={classNames('bg-background  text-primary p-4 flex flex-col fixed lg:static transition-transform duration-300 transform h-full z-20', {
         'translate-x-0': sidebarOpen,
         '-translate-x-full lg:translate-x-0': !sidebarOpen,
       })}>
         <div className="flex justify-between items-center">
-          <div className='flex items-center gap-3 py-2 px-3'>
+          <div className='flex items-center gap-3 py-2 px-3 text-accent'>
             <CiAirportSign1 fontSize={24} />
-            <div className='text-lg'>ABC GARMENT</div>
+            <div className='text-lg font-bold'>Sunflower Marketing</div>
           </div>
           <AiOutlineClose onClick={closeSidebar} className="text-2xl cursor-pointer lg:hidden" />
         </div>
-        <div className="py-8 flex flex-1 flex-col gap-0.5">
+        <div className="py-8 flex flex-1 flex-col gap-0.5 text-accent">
           {DASHBOARD_SIDEBAR_LINKS.map((item) => (
             <SidebarLink key={item.key} 
               item={item}
@@ -53,7 +53,7 @@ export const Sidebar = () => {
           {DASHBOARD_SIDEBAR_BOTTOM_LINKS.map((item) => (
             <SidebarLink22 key={item.key} item={item} closeSidebar={closeSidebar} />
           ))}
-          <div className={classNames('text-neutral-400 cursor-pointer text-red-700', linkClass)}>
+          <div className={classNames('text-neutral-400 cursor-pointer text-accent font-bold', linkClass)}>
             <span></span>
             Logout
           </div>
@@ -96,7 +96,7 @@ function SidebarLink({ item, isExpanded, onMenuClick, closeSidebar }) {
   if (item.subMenu) {
     return (
       <div>
-        <div onClick={onMenuClick} className={classNames(pathname === item.path ? 'bg-neutral-700 text-white' : 'text-neutral-400 cursor-pointer', linkClass)}>
+        <div onClick={onMenuClick} className={classNames(pathname === item.path ? 'bg-neutral-700 text-accent' : 'text-neutral-400 cursor-pointer', linkClass)}>
           <span className="text-xl">{item.icon}</span>
           {item.label}
         </div>

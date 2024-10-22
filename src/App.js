@@ -5,28 +5,34 @@ import { Home } from "./components/shared/Home";
 import { Dashboard } from "./components/shared/Dashboard";
 import { About } from "./components/shared/About";
 import { Contact } from "./components/shared/Contact";
-import { Products } from "./components/shared/Products";
-import { New_product } from "./components/shared/Product/New_product";
-import { Product_list } from "./components/shared/Product/Product_list";
-import { Add_Product } from "./components/shared/Product/Add_Product";
-import { Product_Issue } from "./components/shared/Product/Product_Issue";
-import AddProductToStock from "./components/shared/Product/AddProductToStock";
-import IssueStockForm from "./components/shared/Product/IssueStockForm";
 import LoginPage from './components/shared/LoginPage';
 import ProtectedRoute from './components/shared/ProtectedRoute';
 import { AuthProvider } from './AuthContext';
-import {Add_new_order} from './components/shared/Orders_menu/Addneworder/Add_new_order'
-import List_Of_order from './components/shared/Orders_menu/Listoforder/List_Of_order'
-import {Addnewcustomer} from './components/shared/Orders_menu/Addnewcustomer/Addnewcustomer';
-import { Addproductcatagry } from './components/shared/Orders_menu/Addproduct/Addproductcatagry';
-import { Addproduct } from './components/shared/Orders_menu/Addproduct/Addproduct';
-import  PremadeProductPage  from './components/shared/Orders_menu/Addneworder/PremadeProductPage';
-import { CreateNewSpecification } from './components/shared/Orders_menu/ProductSpecifiction/CreateNewSpecification';
-import OrderDetails  from './components/shared/Orders_menu/Listoforder/OrderDetails'
-import AddPremadeProductForm from './components/shared/Orders_menu/ProductSpecifiction/AddPremadeProductForm';
-import { Premadeproductdetails } from './components/shared/Orders_menu/ProductSpecifiction/Premadeproductdetails';
-import StockManagement from './components/shared/Stck_Management/StockManagement';
-import StockRequirement from './components/shared/Stck_Management/StockRequirement';
+import  Product_lists  from './components/shared/Product_flr/Product_lists';
+import CreateTablePage from './CreateTablePage';
+import AddProductForm from './components/Product/AddProductForm';
+import ProductCategories from './components/Product/ProductCategories';
+import ProductList from './components/Product/ProductList';
+import PrintInvoice from './components/Product/PrintInvoice';
+import WhatsAppForm from './components/Product/WhatsAppForm';
+import SalesRep from './components/Rep/SalesRep';
+import SalesRepList from './components/Rep/SalesRepList';
+import Vehicles from './components/Vehicles/Vehicles';
+import VehiclesList from './components/Vehicles/VehiclesList';
+import AddRoot from './components/Vehicles/AddRoot';
+import RootsList from './components/Vehicles/RootsList';
+import AddCustomer from './components/Customer/AddCustomer';
+import CustomerList from './components/Customer/CustomerList';
+import DailySalesPlanForm from './components/Rep/DailySalesPlanForm';
+import DailySalesPlanList from './components/Rep/DailySalesPlanList';
+import CreateInvoice from './components/Rep/CreateInvoice';
+import AddProductToInvoice from './components/Rep/AddProductToInvoice';
+import SalesRepAchievement from './components/Rep/SalesRepAchievement';
+import ProductCategoryList from './components/Product/Productchatagorylist';
+import UpdateProduct from './components/Product/UpdateProduct';
+import CreateMonthlySalesTarget from './components/Rep/CreateMonthlySalesTarget';
+import CompanySalesReport from './components/Reports/CompanySalesReport';
+
 function App() {
   return (
     <div className="App">
@@ -39,26 +45,30 @@ function App() {
               <Route path="Dashboard" element={<Dashboard />} />
               <Route path="About" element={<About />} />
               <Route path="Contact" element={<Contact />} />
-              <Route path="Products" element={<Products />} />
-              <Route path="New_product" element={<New_product />} />
-              <Route path="Product_list" element={<Product_list />} />
-              <Route path="Add_product" element={<Add_Product />} />
-              <Route path="Product_Issue" element={<Product_Issue />} />
-              <Route path="Add_product" element={<AddProductToStock />} />
-              <Route path="Issue_product" element={<IssueStockForm />} />
-              <Route path="Add_new_order" element={<Add_new_order />} />
-              <Route path="List_Of_order" element={<List_Of_order />} />
-              <Route path="Addnewcustomer" element={<Addnewcustomer />} />
-              <Route path="Addproductcatagry" element={<Addproductcatagry />} />
-              <Route path="Addproduct" element={<Addproduct />} />
-              <Route path="PremadeProductPage/:id/:productId" element={<PremadeProductPage />} />
-              <Route path="order-details/:orderId" element={<OrderDetails />} />
-              <Route path="AddPremadeProductForm/:orderId/:productId" element={<AddPremadeProductForm />} />
-              <Route path="CreateNewSpecification/:id/:productId/:premadeProductId" element={<CreateNewSpecification />} />
-              <Route path="Premadeproductdetails/:id/:productId/:premadeProductId" element={<Premadeproductdetails/>} />
-              <Route path="StockManagement" element={<StockManagement/>} />
-              <Route path="/stock_requirement/:orderId/:premadeProductId" element={<StockRequirement />} />
-            
+              <Route path="CreateTablePage" element={<CreateTablePage />} />
+              <Route path="Contact" element={<Contact />} />
+              <Route path="Addnewproduct" element={<AddProductForm />} />
+              <Route path="ProductCategories" element={<ProductCategories />} />
+              <Route path="ProductList" element={<ProductList />} />
+              <Route path="PrintInvoice" element={<PrintInvoice />} />
+              <Route path="WhatsAppForm" element={<WhatsAppForm />} />
+              <Route path="SalesRep" element={<SalesRep />} />
+              <Route path="SalesRepList" element={<SalesRepList />} />
+              <Route path="Vehicles" element={<Vehicles />} />
+              <Route path="VehiclesList" element={<VehiclesList />} />
+              <Route path="AddRoot" element={<AddRoot />} />
+              <Route path="RootsList" element={<RootsList />} />
+              <Route path="AddCustomer" element={<AddCustomer />} />
+              <Route path="CustomerList" element={<CustomerList />} />
+              <Route path="DailySalesPlanForm" element={<DailySalesPlanForm />} />
+              <Route path="DailySalesPlanList" element={<DailySalesPlanList />} />
+              <Route path="CreateInvoice" element={<CreateInvoice />} />
+              <Route path="AddProductToInvoice" element={<AddProductToInvoice />} />
+              <Route path="SalesRepAchievement" element={<SalesRepAchievement />} />
+              <Route path="ProductCategoryList" element={<ProductCategoryList />} />
+              <Route path="UpdateProduct" element={<UpdateProduct />} />
+              <Route path="CreateMonthlySalesTarget" element={<CreateMonthlySalesTarget />} />
+              <Route path="CompanySalesReport" element={<CompanySalesReport />} />
             </Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
